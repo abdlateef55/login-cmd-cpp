@@ -1,9 +1,12 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
+#include <fstream>
 using namespace std;
 
 int main(){
+   ofstream login;
+   login.open("lidatabase.txt");
    string email = "";
    string user_password = "";
    int try_again = 0;
@@ -19,14 +22,17 @@ if(email == "as@mail.com" && user_password == "99775511"){
      cout<<"\t\t\t------------------- \n ";
       printf("\t\t\tWelcome 'A.Sanussi'\n");
       cout<<"\t\t\t------------------- ";
+      login<<"\t\t\t------------------- \n \t\t\tWelcome 'A.Sanussi'\n \t\t\t------------------- ";
     try_again = 1;
 }else if(email == "gh@mail.ru" && user_password == "9751"){
     cout<<"\t\t\t------------------- \n ";
     cout<<"\t\t\tWelcome Admin\n";
     cout<<"\t\t\t------------------- ";
+    login<<"\t\t\t------------------- \n \t\t\tWelcome Admin\n \t\t\t------------------- ";
     try_again = 1;
 }else{
-    cout<<"!!!! Wrong email or password , please try again \a \a " << endl;}
+    cout<<"!!!! Wrong email or password , please try again \a \a " << endl;
+    login<<"!!!! Wrong email or password , please try again \a \a " << endl;}
    }while(try_again != 1);
+   login.close();
 }
-
